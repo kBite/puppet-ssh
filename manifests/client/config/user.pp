@@ -9,7 +9,6 @@ define ssh::client::config::user(
   Hash $options                                 = {},
   Optional[Stdlib::Absolutepath] $target        = undef,
   Optional[Stdlib::Absolutepath] $user_home_dir = undef,
-  String $user                                  = $name,
 )
 {
 
@@ -57,4 +56,5 @@ define ssh::client::config::user(
     content => template("${module_name}/ssh_config.erb"),
     target  => $_target,
   }
+
 }
