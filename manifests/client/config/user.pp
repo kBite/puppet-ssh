@@ -1,18 +1,16 @@
 #
 # Copyright (c) IN2P3 Computing Centre, IN2P3, CNRS
 # Contributor: Remi Ferrand <remi{dot}ferrand_at_cc(dot)in2p3.fr> (2015)
+# Contributor: Tim Meusel <tim@bastelfreak.de> (2017)
 #
 define ssh::client::config::user(
-  $ensure               = present,
-  $target               = undef,
-  $user_home_dir        = undef,
-  $manage_user_ssh_dir  = true,
-  $options              = {}
+  Enum['present', 'absent'] $ensure             = present,
+  Boolean $manage_user_ssh_dir                  = true,
+  Hash $options                                 = {},
+  Optional[Stdlib::Absolutepath] $target        = undef,
+  Optional[Stdlib::Absolutepath] $user_home_dir = undef,
 )
 {
-  validate_re($ensure, '^(present|absent)$')
-  validate_hash($options)
-  validate_bool($manage_user_ssh_dir)
 
   include ::ssh::params
 
@@ -53,4 +51,5 @@ define ssh::client::config::user(
     mode    => $::ssh::params::user_ssh_config_default_mode,
     content => template("${module_name}/ssh_config.erb"),
   }
+
 }
