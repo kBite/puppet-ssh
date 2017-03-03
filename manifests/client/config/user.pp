@@ -19,7 +19,6 @@ define ssh::client::config::user(
   # it must have higher priority than any
   # other parameter.
   if ($target != undef) {
-    validate_absolute_path($target)
     $_target = $target
   }
   else {
@@ -27,7 +26,6 @@ define ssh::client::config::user(
       $_user_home_dir = "/home/${user}"
     }
     else {
-      validate_absolute_path($user_home_dir)
       $_user_home_dir = $user_home_dir
     }
 
