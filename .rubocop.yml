@@ -304,6 +304,9 @@ Style/EmptyLiteral:
 Metrics/LineLength:
   Enabled: False
 
+Style/MethodCallWithoutArgsParentheses:
+  Enabled: True
+
 Style/MethodDefParentheses:
   Enabled: True
 
@@ -522,5 +525,13 @@ RSpec/DescribeClass:
 RSpec/ExampleLength:
   Enabled: False
 
-RSpec/NestedGroups:                                                                                                                                                                                              
+RSpec/NamedSubject:
+  Enabled: False
+
+# disabled for now since they cause a lot of issues
+# these issues aren't easy to fix
+RSpec/RepeatedDescription:
+  Enabled: False
+
+RSpec/NestedGroups:
   Max: 5
