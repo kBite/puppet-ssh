@@ -2,7 +2,7 @@ module Puppet::Parser::Functions
   newfunction(:ipaddresses, :type => :rvalue, :doc => <<-EOS
   Returns all ip addresses of network interfaces (except lo) found by facter.
 EOS
-  ) do |_args|
+             ) do |_args|
     interfaces = lookupvar('interfaces')
 
     # In Puppet v2.7, lookupvar returns :undefined if the variable does
